@@ -1,10 +1,84 @@
-{% extends "layout/base.html" %} {% block title %} Home {% endblock %} {% block
-content %}
+{% extends "layout/base.html" %} {% block title %} MediVerse AI {% endblock %}
+{% block content %}
 
-<div class="container py-5">
-  <h1 class="display-3 fw-bold">Welcome to MediVerse AI 🚀</h1>
+<!-- ================= HERO ================= -->
 
-  <p>AI Powered Healthcare Recommendation Platform</p>
-</div>
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center min-vh-100">
+      <!-- Left Side -->
+
+      <div class="col-lg-6">
+        <h1 class="display-2 fw-bold">
+          AI Powered
+
+          <span class="text-primary"> Healthcare </span>
+
+          Recommendation
+        </h1>
+
+        <p class="lead mt-4">
+          Personalized disease prediction, medicine recommendation, AI-powered
+          healthcare analytics, and intelligent recommendations.
+        </p>
+
+        <div class="mt-5">
+          <button class="btn btn-primary-custom me-3">Explore Platform</button>
+
+          <button class="btn btn-login">Learn More</button>
+        </div>
+      </div>
+
+      <!-- Right Side -->
+
+      <div class="col-lg-6">
+        <div class="hero-logo-container">
+          <div class="glow-circle glow-one"></div>
+
+          <div class="glow-circle glow-two"></div>
+
+          <img
+            id="heroLogo"
+            src="{{ url_for('static', filename='images/logo/logo.svg') }}"
+            class="hero-logo"
+            alt="MediVerse AI"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KPI ================= -->
+
+<section class="stats-section py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="stat-card text-center">
+          <h2>95%</h2>
+
+          <p>Prediction Accuracy</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="stat-card text-center">
+          <h2>50K+</h2>
+
+          <p>Healthcare Records</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="stat-card text-center">
+          <h2>24/7</h2>
+
+          <p>AI Assistance</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 {% endblock %}
