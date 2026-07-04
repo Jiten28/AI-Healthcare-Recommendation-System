@@ -1,0 +1,77 @@
+.glass{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.4);
+
+}
+
+.gradient-text{
+
+    background:linear-gradient(90deg,#2563EB,#06B6D4);
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+}
+
+.shadow{
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.shadow-lg{
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.rounded-xl{
+
+    border-radius:30px;
+
+}
+
+.flex-center{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.mt-100{
+
+    margin-top:100px;
+
+}
+
+.w-100{
+
+width:100%;
+
+}
+
+.text-center{
+
+text-align:center;
+
+}
+
+.position-relative{
+
+position:relative;
+
+}
+
+.overflow-hidden{
+
+overflow:hidden;
+
+}

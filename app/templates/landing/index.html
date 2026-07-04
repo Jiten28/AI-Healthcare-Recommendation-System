@@ -1,12 +1,18 @@
-{% extends "layout/base.html" %} {% block title %} MediVerse AI {% endblock %}
-{% block content %}
+{% extends "layout/base.html" %} {% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/landing.css') }}"
+/>
+{% endblock %} {% block title %} MediVerse AI {% endblock %} {% block content %}
 
-<!-- ================= HERO ================= -->
+<!-- ==========================================
+                HERO SECTION
+========================================== -->
 
 <section class="hero-section">
   <div class="container">
-    <div class="row align-items-center min-vh-100">
-      <!-- Left Side -->
+    <div class="row align-items-center hero-row">
+      <!-- Left -->
 
       <div class="col-lg-6">
         <h1 class="display-2 fw-bold">
@@ -22,20 +28,39 @@
           healthcare analytics, and intelligent recommendations.
         </p>
 
-        <div class="mt-5">
-          <button class="btn btn-primary-custom me-3">Explore Platform</button>
+        <div class="hero-buttons mt-5">
+          <button
+            class="btn btn-primary-custom me-3"
+            onclick="
+              document
+                .querySelector('.features-section')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            Explore Platform
+          </button>
 
-          <button class="btn btn-login">Learn More</button>
+          <button
+            class="btn btn-login"
+            onclick="
+              document
+                .querySelector('.stats-section')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            Learn More
+          </button>
         </div>
       </div>
-
-      <!-- Right Side -->
+      <!-- Right -->
 
       <div class="col-lg-6">
         <div class="hero-logo-container">
-          <div class="glow-circle glow-one"></div>
+          <div class="hero-glow hero-glow-1"></div>
 
-          <div class="glow-circle glow-two"></div>
+          <div class="hero-glow hero-glow-2"></div>
+
+          <div class="hero-glow hero-glow-3"></div>
 
           <img
             id="heroLogo"
@@ -51,30 +76,198 @@
 
 <!-- ================= KPI ================= -->
 
-<section class="stats-section py-5">
+<section class="stats-section">
   <div class="container">
     <div class="row g-4">
-      <div class="col-md-4">
-        <div class="stat-card text-center">
+      <div class="col-lg-4 col-md-6">
+        <div class="stat-card">
+          <img
+            src="{{ url_for('static', filename='images/icons/prediction.svg') }}"
+            class="stat-svg"
+            alt="Prediction"
+          />
+
           <h2>95%</h2>
 
-          <p>Prediction Accuracy</p>
+          <h5>Prediction Accuracy</h5>
+
+          <p>Machine Learning Disease Prediction</p>
         </div>
       </div>
 
-      <div class="col-md-4">
-        <div class="stat-card text-center">
+      <div class="col-lg-4 col-md-6">
+        <div class="stat-card">
+          <img
+            src="{{ url_for('static', filename='images/icons/dashboard.svg') }}"
+            class="stat-svg"
+            alt="Dashboard"
+          />
+
           <h2>50K+</h2>
 
-          <p>Healthcare Records</p>
+          <h5>Healthcare Records</h5>
+
+          <p>Public Healthcare Dataset</p>
         </div>
       </div>
 
-      <div class="col-md-4">
-        <div class="stat-card text-center">
+      <div class="col-lg-4 col-md-12">
+        <div class="stat-card">
+          <img
+            src="{{ url_for('static', filename='images/icons/brain.svg') }}"
+            class="stat-svg"
+            alt="Brain"
+          />
+
           <h2>24/7</h2>
 
-          <p>AI Assistance</p>
+          <h5>AI Recommendation</h5>
+
+          <p>Real-time Intelligent Suggestions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Why Choose <span>MediVerse AI?</span></h2>
+
+      <p class="section-subtitle">
+        AI Powered Healthcare Platform for Disease Prediction, Medicine
+        Recommendation and Intelligent Analytics.
+      </p>
+    </div>
+
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <img
+          src="{{ url_for('static', filename='images/icons/prediction.svg') }}"
+          class="img-fluid feature-image"
+        />
+      </div>
+
+      <div class="col-lg-6">
+        <h3>AI Disease Prediction</h3>
+
+        <p>
+          Predict diseases accurately using trained Machine Learning models
+          powered by healthcare datasets.
+        </p>
+      </div>
+    </div>
+
+    <div class="row align-items-center gy-5 flex-lg-row-reverse mt-100">
+      <div class="col-lg-6">
+        <img
+          src="{{ url_for('static', filename='images/icons/medicine.svg') }}"
+          class="img-fluid feature-image"
+        />
+      </div>
+
+      <div class="col-lg-6">
+        <h3>Medicine Recommendation</h3>
+
+        <p>
+          Personalized medicine suggestions based on predicted diseases and
+          patient information.
+        </p>
+      </div>
+    </div>
+
+    <div class="row align-items-center gy-5 mt-100">
+      <div class="col-lg-6">
+        <img
+          src="{{ url_for('static', filename='images/icons/analytics.svg') }}"
+          class="img-fluid feature-image"
+        />
+      </div>
+
+      <div class="col-lg-6">
+        <h3>Healthcare Analytics</h3>
+
+        <p>
+          Beautiful dashboards and insights for better healthcare decision
+          making.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+            HOW IT WORKS
+========================================== -->
+
+<section class="workflow-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">How <span>MediVerse AI</span> Works</h2>
+
+      <p class="section-subtitle">
+        From symptoms to intelligent healthcare recommendations in four simple
+        steps.
+      </p>
+    </div>
+
+    <div class="row text-center g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="workflow-card">
+          <img
+            src="{{ url_for('static', filename='images/icons/doctor.svg') }}"
+            class="workflow-icon"
+            alt="Doctor"
+          />
+
+          <h4>Enter Symptoms</h4>
+
+          <p>Select symptoms using our intelligent symptom checker.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="workflow-card">
+          <img
+            src="{{ url_for('static', filename='images/icons/brain.svg') }}"
+            class="workflow-icon"
+            alt="Brain"
+          />
+
+          <h4>AI Prediction</h4>
+
+          <p>Machine Learning predicts the most probable disease.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="workflow-card">
+          <img
+            src="{{ url_for('static', filename='images/icons/medicine.svg') }}"
+            class="workflow-icon"
+            alt="Medicine"
+          />
+
+          <h4>Recommendations</h4>
+
+          <p>Receive medicine, precautions and diet suggestions.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="workflow-card">
+          <img
+            src="{{ url_for('static', filename='images/icons/analytics.svg') }}"
+            class="workflow-icon"
+            alt="Analytics"
+          />
+
+          <h4>Analytics</h4>
+
+          <p>Visual dashboards help understand healthcare insights.</p>
         </div>
       </div>
     </div>

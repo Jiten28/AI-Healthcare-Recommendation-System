@@ -54,22 +54,17 @@
 
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/base.css') }}"
+      href="{{ url_for('static', filename='css/utilities.css') }}"
     />
 
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/components.css') }}"
+      href="{{ url_for('static', filename='css/layout.css') }}"
     />
 
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/animations.css') }}"
-    />
-
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/responsive.css') }}"
+      href="{{ url_for('static', filename='css/landing.css') }}"
     />
 
     {% block css %} {% endblock %}
@@ -90,6 +85,8 @@
     <!-- AOS -->
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <script>
       AOS.init();

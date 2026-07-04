@@ -1,0 +1,359 @@
+/* ==========================
+   HERO
+========================== */
+
+.hero-section{
+
+    min-height:100vh;
+
+    padding-top:90px;
+
+    display:flex;
+
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* ===================================
+        HERO ROW
+=================================== */
+
+.hero-row{
+    min-height:calc(100vh - 90px);
+}
+
+/* ===================================
+        HERO LOGO
+=================================== */
+
+.hero-logo-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:100%;
+
+    min-height:calc(100vh - 90px);
+
+    position:relative;
+
+}
+
+.hero-logo{
+
+    width:100%;
+
+    max-width:460px;
+
+    height:auto;
+
+    position:relative;
+
+    z-index:20;
+
+    filter:
+        drop-shadow(0 0 25px rgba(37,99,235,.35))
+        drop-shadow(0 0 60px rgba(37,99,235,.20));
+
+}
+
+/* Glow */
+
+.hero-glow{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(70px);
+    pointer-events:none;
+
+}
+
+.hero-glow-1{
+
+    width:340px;
+
+    height:340px;
+
+    background:#2563EB;
+
+    opacity:.18;
+
+}
+
+.hero-glow-2{
+
+    width:240px;
+
+    height:240px;
+
+    background:#06B6D4;
+
+    right:80px;
+
+    top:120px;
+
+    opacity:.22;
+
+}
+
+.hero-glow-3{
+
+    width:170px;
+
+    height:170px;
+
+    background:#22C55E;
+
+    bottom:100px;
+
+    left:60px;
+
+    opacity:.15;
+
+}
+
+/* ===================================
+        Floating Animation
+=================================== */
+
+@keyframes floatLogo{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-18px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+/* ===================================
+        Kpi Section
+=================================== */
+
+
+.stats-section{
+
+    margin-top:-60px;
+
+    position:relative;
+
+    z-index:20;
+
+}
+
+.stat-card{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(37,99,235,.08);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    transition:
+
+        transform .35s,
+
+        box-shadow .35s;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    height:100%;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 25px 60px rgba(37,99,235,.18);
+
+}
+
+.stat-svg{
+    display:block;
+    width:80px;
+    height:80px;
+    margin:0 auto 20px;
+    object-fit:contain;
+}
+
+
+.stat-card:hover .stat-svg{
+
+    transform:scale(1.08);
+
+}
+
+.stat-card h2{
+
+    color:var(--primary);
+
+    font-size:2.8rem;
+
+}
+
+.stat-card h5{
+
+    margin:10px 0;
+
+}
+
+.stat-card p{
+
+    color:#64748b;
+
+}
+
+/* ==========================
+   FEATURES
+========================== */
+
+.features-section{
+    padding:120px 0;
+}
+
+.feature-image{
+    width:100%;
+    max-width:260px;
+    height:auto;
+    display:block;
+    margin:auto;
+    animation:floatLogo 5s ease-in-out infinite;
+    transition:transform .35s ease;
+}
+
+.feature-image:hover{
+    transform:scale(1.05);
+}
+
+.section-title{
+    font-size:3rem;
+    font-weight:700;
+}
+
+.section-title span{
+    color:var(--primary);
+}
+
+.section-subtitle{
+    max-width:700px;
+    margin:20px auto 70px;
+    color:#64748b;
+}
+
+.features-section h3{
+    font-size:2rem;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.features-section p{
+    max-width:500px;
+    font-size:1.1rem;
+    line-height:1.8;
+    color:#64748b;
+}
+
+.features-section .row{
+    margin-bottom:120px;
+    align-items:center;
+}
+
+.features-section .row:last-child{
+    margin-bottom:0;
+}
+
+/* ===================================
+        HOW IT WORKS
+=================================== */
+
+.workflow-section{
+
+    padding:120px 0;
+
+}
+
+.workflow-card{
+
+    background:#ffffff;
+
+    border-radius:25px;
+
+    padding:40px 30px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    transition:all .35s ease;
+
+    height:100%;
+
+}
+
+.workflow-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 25px 55px rgba(37,99,235,.15);
+
+}
+
+.workflow-icon{
+
+    display:block;
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:contain;
+
+    margin:0 auto 25px;
+
+}
+
+.workflow-card h4{
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.workflow-card p{
+
+    color:#64748b;
+
+    margin-bottom:0;
+
+}
