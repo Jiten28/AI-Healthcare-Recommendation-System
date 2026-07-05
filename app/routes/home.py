@@ -1,3 +1,4 @@
+from flask import abort
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
 from app.models.user import User
@@ -138,8 +139,10 @@ def doctor():
 @login_required
 def admin():
 
-    total_users = User.query.count()
+    if not current_user.is_admin:
+        abort(403)
 
+    total_users = User.query.count()
     total_predictions = PredictionHistory.query.count()
 
     total_diseases = (

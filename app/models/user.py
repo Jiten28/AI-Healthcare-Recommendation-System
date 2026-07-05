@@ -24,6 +24,11 @@ class User(UserMixin, db.Model):
         lazy=True
     )
 
+    is_admin = db.Column(
+        db.Boolean,
+        default=False
+    )
+
 
 @login_manager.user_loader
 def load_user(user_id):
