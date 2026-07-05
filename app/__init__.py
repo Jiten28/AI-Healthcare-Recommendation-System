@@ -18,6 +18,8 @@ def create_app():
 
     from app.routes.home import home_bp
     app.register_blueprint(home_bp)
+    from app.routes.auth import auth_bp
+    app.register_blueprint(auth_bp)
 
     with app.app_context():
         from app.models.user import User

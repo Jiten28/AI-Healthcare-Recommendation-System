@@ -1,0 +1,113 @@
+/* ==========================
+   AUTH PAGE
+========================== */
+
+.auth-section{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:120px 0;
+    background:linear-gradient(135deg,#f8fbff,#eef6ff);
+}
+
+.auth-card{
+
+    max-width:500px;
+    width:100%;
+
+    background:rgba(255,255,255,.9);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    padding:45px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.08);
+
+}
+
+.auth-card h2{
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+    font-weight:700;
+
+}
+
+.auth-card p{
+
+    text-align:center;
+
+    color:#64748b;
+
+    margin-bottom:35px;
+
+}
+
+.form-control{
+
+    border-radius:12px;
+
+    padding:14px;
+
+}
+
+.auth-btn{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:50px;
+
+}
+
+.auth-link{
+
+    text-align:center;
+
+    margin-top:25px;
+
+}
+
+/* ==========================
+   PASSWORD TOGGLE
+========================== */
+
+.password-wrapper{
+    position:relative;
+}
+
+.password-wrapper input{
+    padding-right:50px;
+}
+
+.toggle-password{
+
+    position:absolute;
+
+    top:50%;
+
+    right:18px;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    color:#94a3b8;
+
+    transition:.3s;
+
+}
+
+.toggle-password:hover{
+
+    color:var(--primary);
+
+}

@@ -1,0 +1,49 @@
+{% extends "layout/base.html" %} {% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/auth.css') }}"
+/>
+{% endblock %} {% block title %} Login {% endblock %} {% block content %}
+
+<section class="auth-section">
+  <div class="auth-card">
+    <h2>Welcome Back</h2>
+
+    <p>Login to MediVerse AI</p>
+
+    <form method="POST">
+      {{ form.hidden_tag() }}
+
+      <div class="mb-3">
+        {{ form.email.label(class="form-label") }} {{
+        form.email(class="form-control") }}
+      </div>
+
+      <div class="mb-4">
+        {{ form.password.label(class="form-label") }}
+
+        <div class="password-wrapper">
+          {{ form.password(class="form-control", id="login_password") }}
+
+          <i
+            class="bi bi-eye-slash toggle-password"
+            onclick="togglePassword('login_password', this)"
+          >
+          </i>
+        </div>
+      </div>
+
+      {{ form.submit(class="btn btn-primary-custom auth-btn") }}
+    </form>
+
+    <div class="auth-link">
+      Don't have an account?
+
+      <a href="/register"> Register </a>
+    </div>
+  </div>
+</section>
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+{% endblock %} {% endblock %}
