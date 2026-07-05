@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
 
+
 db = SQLAlchemy()
 
 bcrypt = Bcrypt()
@@ -31,8 +32,12 @@ def create_app():
 
     from app.routes.home import home_bp
     app.register_blueprint(home_bp)
+
     from app.routes.auth import auth_bp
     app.register_blueprint(auth_bp)
+
+    from app.routes.prediction import prediction_bp
+    app.register_blueprint(prediction_bp)
 
     with app.app_context():
         from app.models.user import User
