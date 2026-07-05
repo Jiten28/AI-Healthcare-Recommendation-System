@@ -1,0 +1,232 @@
+/* ==========================
+   DASHBOARD HERO
+========================== */
+
+.dashboard-hero{
+    padding:140px 0 90px;
+    position:relative;
+    overflow:hidden;
+}
+
+.dashboard-hero::before{
+    content:"";
+    position:absolute;
+    width:650px;
+    height:650px;
+    top:-250px;
+    right:-220px;
+    border-radius:50%;
+    background:radial-gradient(circle,var(--primary-light),transparent);
+    opacity:.18;
+}
+
+.dashboard-hero h1{
+    font-size:3.4rem;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.dashboard-hero p{
+    font-size:1.15rem;
+    color:#64748b;
+    max-width:580px;
+    line-height:1.8;
+}
+
+.dashboard-svg{
+    width:100%;
+    max-width:420px;
+    display:block;
+    margin:auto;
+    animation:floatLogo 5s ease-in-out infinite;
+}
+
+/* ==========================
+   CARD
+========================== */
+
+.prediction-card,
+.dashboard-card,
+.analytics-card{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    border:1px solid rgba(37,99,235,.08);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+
+}
+
+.prediction-card h2,
+.dashboard-card h2,
+.analytics-card h2{
+
+    margin-bottom:30px;
+
+    font-weight:700;
+
+}
+
+/* ==========================
+   FORM
+========================== */
+
+.form-control{
+
+    border-radius:15px;
+
+    padding:16px;
+
+    border:1px solid #dbeafe;
+
+    box-shadow:none;
+
+}
+
+.form-control:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 .25rem rgba(37,99,235,.15);
+
+}
+
+/* ==========================
+   KPI
+========================== */
+
+.dashboard-stat{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    height:100%;
+
+}
+
+.dashboard-stat:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.dashboard-stat img{
+
+    width:70px;
+
+    margin-bottom:20px;
+
+}
+
+.dashboard-stat h2{
+
+    color:var(--primary);
+
+    font-size:2.5rem;
+
+}
+
+.dashboard-stat p{
+
+    color:#64748b;
+
+}
+
+/* ==========================
+   CHART CARD
+========================== */
+
+.chart-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:35px;
+
+    height:350px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+}
+
+.chart-card img{
+
+    width:150px;
+
+    margin-bottom:20px;
+
+}
+
+.chart-card h4{
+
+    margin-bottom:12px;
+
+}
+
+.chart-card p{
+
+    color:#64748b;
+
+    text-align:center;
+
+}
+
+/* ==========================
+   KPI SECTION
+========================== */
+
+.dashboard-kpi{
+    padding:70px 0;
+}
+
+.dashboard-stat img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    display:block;
+    margin:0 auto 20px;
+}
+
+/* ==========================
+   CHARTS
+========================== */
+
+.dashboard-charts{
+    padding:70px 0 120px;
+}
+
+.chart-card img{
+    width:180px;
+    height:180px;
+    object-fit:contain;
+    display:block;
+    margin:0 auto 25px;
+}
+
+.chart-card{
+    text-align:center;
+}

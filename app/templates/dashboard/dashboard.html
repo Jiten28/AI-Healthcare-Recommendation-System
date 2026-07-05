@@ -3,7 +3,9 @@
   rel="stylesheet"
   href="{{ url_for('static', filename='css/dashboard.css') }}"
 />
-{% endblock %} {% block title %} Dashboard {% endblock %} {% block content %}
+{% endblock %} {% block title %}Dashboard{% endblock %} {% block content %}
+
+<!-- ================= HERO ================= -->
 
 <section class="dashboard-hero">
   <div class="container">
@@ -12,52 +14,103 @@
         <h1>Healthcare Dashboard</h1>
 
         <p>
-          Visualize healthcare insights, patient statistics, and AI-powered
-          reports.
+          Visualize healthcare insights, patient statistics, disease trends and
+          AI-powered reports in one place.
         </p>
+
+        <a href="/prediction" class="btn btn-primary-custom mt-4">
+          Start Prediction
+        </a>
       </div>
 
       <div class="col-lg-6 text-center">
         <img
           src="{{ url_for('static', filename='images/icons/dashboard.svg') }}"
           class="dashboard-svg"
+          alt="Dashboard"
         />
       </div>
     </div>
   </div>
 </section>
 
-<section class="container">
-  <div class="row g-4">
-    <div class="col-lg-3">
-      <div class="stat-card">
-        <h2>5,000+</h2>
+<!-- ================= KPI ================= -->
 
-        <p>Patients</p>
+<section class="dashboard-kpi">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="dashboard-stat">
+          <img
+            src="{{ url_for('static', filename='images/icons/prediction.svg') }}"
+          />
+          <h2>5,000+</h2>
+          <p>Patients</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="dashboard-stat">
+          <img
+            src="{{ url_for('static', filename='images/icons/brain.svg') }}"
+          />
+          <h2>95%</h2>
+          <p>Prediction Accuracy</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="dashboard-stat">
+          <img
+            src="{{ url_for('static', filename='images/icons/medicine.svg') }}"
+          />
+          <h2>42</h2>
+          <p>Diseases</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="dashboard-stat">
+          <img
+            src="{{ url_for('static', filename='images/icons/admin.svg') }}"
+          />
+          <h2>24/7</h2>
+          <p>Availability</p>
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="col-lg-3">
-      <div class="stat-card">
-        <h2>95%</h2>
+<!-- ================= CHARTS ================= -->
 
-        <p>Accuracy</p>
+<section class="dashboard-charts">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="chart-card">
+          <img
+            src="{{ url_for('static', filename='images/icons/analytics.svg') }}"
+            alt="Analytics"
+          />
+
+          <h4>Disease Distribution</h4>
+
+          <p>Charts and disease statistics will be displayed here.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="col-lg-3">
-      <div class="stat-card">
-        <h2>42</h2>
+      <div class="col-lg-6">
+        <div class="chart-card">
+          <img
+            src="{{ url_for('static', filename='images/icons/dashboard.svg') }}"
+            alt="Dashboard"
+          />
 
-        <p>Diseases</p>
-      </div>
-    </div>
+          <h4>Prediction Accuracy</h4>
 
-    <div class="col-lg-3">
-      <div class="stat-card">
-        <h2>24/7</h2>
-
-        <p>Availability</p>
+          <p>AI prediction reports and analytics will appear here.</p>
+        </div>
       </div>
     </div>
   </div>
