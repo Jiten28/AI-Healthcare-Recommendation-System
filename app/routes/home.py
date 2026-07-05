@@ -383,3 +383,18 @@ def export_excel():
         as_attachment=True,
         mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
+
+
+@home_bp.route("/make-admin")
+def make_admin():
+
+    user = User.query.filter_by(
+        email="jiten282003@gmail.com"
+    ).first()
+
+    if user:
+        user.is_admin = True
+        db.session.commit()
+        return "Admin Created Successfully"
+
+    return "User not found"
