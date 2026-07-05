@@ -13,7 +13,16 @@ class User(UserMixin, db.Model):
 
     password = db.Column(db.String(255), nullable=False)
 
-    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    created_at = db.Column(
+        db.DateTime,
+        server_default=db.func.now()
+    )
+
+    predictions = db.relationship(
+        "PredictionHistory",
+        backref="user",
+        lazy=True
+    )
 
 
 @login_manager.user_loader

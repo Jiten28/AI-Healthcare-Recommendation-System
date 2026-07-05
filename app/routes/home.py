@@ -1,8 +1,9 @@
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
-
+from app.models.user import User
 from app.models.prediction_history import PredictionHistory
 from app.ml.recommend import get_recommendation
+from app import db
 
 home_bp = Blueprint("home", __name__)
 
@@ -56,10 +57,23 @@ def dashboard():
         else None
     )
 
+    disease_count = {}
+
+    for p in predictions:
+        if p.disease:
+            disease_count[p.disease] = (
+                disease_count.get(p.disease, 0) + 1
+            )
+
+    chart_labels = list(disease_count.keys())
+    chart_values = list(disease_count.values())
+
     return render_template(
         "dashboard/dashboard.html",
         total_predictions=total_predictions,
-        latest_prediction=latest_prediction
+        latest_prediction=latest_prediction,
+        chart_labels=chart_labels,
+        chart_values=chart_values
     )
 
 
@@ -118,6 +132,33 @@ def doctor():
 
 
 # Admin Page
+
+
 @home_bp.route("/admin")
+@login_required
 def admin():
-    return render_template("dashboard/admin.html")
+
+    total_users = User.query.count()
+
+    total_predictions = PredictionHistory.query.count()
+
+    total_diseases = (
+        db.session.query(
+            PredictionHistory.disease
+        ).distinct().count()
+    )
+
+    recent_predictions = (
+        PredictionHistory.query
+        .order_by(PredictionHistory.created_at.desc())
+        .limit(10)
+        .all()
+    )
+
+    return render_template(
+        "dashboard/admin.html",
+        total_users=total_users,
+        total_predictions=total_predictions,
+        total_diseases=total_diseases,
+        recent_predictions=recent_predictions
+    )

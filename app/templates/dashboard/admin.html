@@ -33,7 +33,7 @@
   <div class="row g-4">
     <div class="col-lg-3">
       <div class="dashboard-stat">
-        <h2>2,350</h2>
+        <h2>{{ total_users }}</h2>
 
         <p>Total Users</p>
       </div>
@@ -41,7 +41,7 @@
 
     <div class="col-lg-3">
       <div class="dashboard-stat">
-        <h2>48</h2>
+        <h2>{{ total_diseases }}</h2>
 
         <p>Diseases</p>
       </div>
@@ -57,7 +57,7 @@
 
     <div class="col-lg-3">
       <div class="dashboard-stat">
-        <h2>1,240</h2>
+        <h2>{{ total_predictions }}</h2>
 
         <p>Predictions</p>
       </div>
@@ -81,35 +81,17 @@
       </thead>
 
       <tbody>
+        {% for p in recent_predictions %}
         <tr>
-          <td>John Doe</td>
+          <td>{{ p.user.name }}</td>
 
-          <td>Diabetes</td>
+          <td>{{ p.disease.replace('_',' ').title() }}</td>
 
           <td>Completed</td>
 
-          <td>Today</td>
+          <td>{{ p.created_at.strftime('%d-%m-%Y') }}</td>
         </tr>
-
-        <tr>
-          <td>Emma</td>
-
-          <td>Hypertension</td>
-
-          <td>Completed</td>
-
-          <td>Today</td>
-        </tr>
-
-        <tr>
-          <td>Alex</td>
-
-          <td>Migraine</td>
-
-          <td>Pending</td>
-
-          <td>Yesterday</td>
-        </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>

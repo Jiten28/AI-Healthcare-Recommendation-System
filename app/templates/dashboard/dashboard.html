@@ -97,31 +97,55 @@
     <div class="row g-4">
       <div class="col-lg-6">
         <div class="chart-card">
-          <img
-            src="{{ url_for('static', filename='images/icons/analytics.svg') }}"
-            alt="Analytics"
-          />
-
           <h4>Disease Distribution</h4>
 
-          <p>Charts and disease statistics will be displayed here.</p>
+          <canvas id="diseaseChart"></canvas>
         </div>
       </div>
 
       <div class="col-lg-6">
         <div class="chart-card">
-          <img
-            src="{{ url_for('static', filename='images/icons/dashboard.svg') }}"
-            alt="Dashboard"
-          />
+          <h4>Prediction Statistics</h4>
 
-          <h4>Prediction Accuracy</h4>
-
-          <p>AI prediction reports and analytics will appear here.</p>
+          <canvas id="predictionChart"></canvas>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const labels = {{ chart_labels|tojson }};
+  const values = {{ chart_values|tojson }};
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  new Chart(document.getElementById("diseaseChart"), {
+    type: "pie",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          data: values,
+        },
+      ],
+    },
+  });
+
+  new Chart(document.getElementById("predictionChart"), {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Predictions",
+          data: values,
+        },
+      ],
+    },
+  });
+</script>
 
 {% endblock %}
