@@ -3,7 +3,7 @@
   rel="stylesheet"
   href="{{ url_for('static', filename='css/dashboard.css') }}"
 />
-{% endblock %} {% block title %}Healthcare Analytics{% endblock %} {% block
+{% endblock %} {% block title %} Healthcare Analytics {% endblock %} {% block
 content %}
 
 <section class="dashboard-hero">
@@ -34,6 +34,7 @@ content %}
     <div class="col-lg-4">
       <div class="dashboard-stat">
         <h2>{{ total_predictions }}</h2>
+
         <p>Total Predictions</p>
       </div>
     </div>
@@ -41,9 +42,10 @@ content %}
     <div class="col-lg-4">
       <div class="dashboard-stat">
         <h2>
-          {% if most_predicted %} {{ most_predicted.replace('_',' ').title() }}
+          {% if most_predicted %} {{ most_predicted.replace("_"," ").title() }}
           {% else %} No Data {% endif %}
         </h2>
+
         <p>Most Predicted Disease</p>
       </div>
     </div>
@@ -51,36 +53,64 @@ content %}
     <div class="col-lg-4">
       <div class="dashboard-stat">
         <h2>{{ avg_confidence }}%</h2>
+
         <p>Average Confidence</p>
       </div>
     </div>
   </div>
 
   <div class="dashboard-card mt-5">
-    <h3 class="mb-4">Recent Predictions</h3>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h3>Recent Predictions</h3>
+
+      <div>
+        <a
+          href="{{ url_for('home.export_excel') }}"
+          class="btn btn-success me-2"
+        >
+          <i class="bi bi-file-earmark-excel"></i>
+          Export Excel
+        </a>
+
+        <a href="{{ url_for('home.export_pdf') }}" class="btn btn-danger">
+          <i class="bi bi-file-earmark-pdf"></i>
+          Export PDF
+        </a>
+      </div>
+    </div>
 
     {% if predictions %}
-    <table class="table">
+
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Disease</th>
+
           <th>Confidence</th>
+
           <th>Date</th>
         </tr>
       </thead>
 
       <tbody>
         {% for p in predictions %}
+
         <tr>
-          <td>{{ p.disease }}</td>
+          <td>{{ p.disease.replace("_"," ").title() }}</td>
+
           <td>{{ p.confidence }}%</td>
-          <td>{{ p.created_at.strftime('%d-%m-%Y') }}</td>
+
+          <td>{{ p.created_at.strftime("%d-%m-%Y") }}</td>
         </tr>
+
         {% endfor %}
       </tbody>
     </table>
+
     {% else %}
+
     <p>No predictions available.</p>
+
     {% endif %}
   </div>
 </section>
