@@ -1,0 +1,66 @@
+{% extends "layout/base.html" %} {% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/dashboard.css') }}"
+/>
+{% endblock %} {% block title %} Dashboard {% endblock %} {% block content %}
+
+<section class="dashboard-hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1>Healthcare Dashboard</h1>
+
+        <p>
+          Visualize healthcare insights, patient statistics, and AI-powered
+          reports.
+        </p>
+      </div>
+
+      <div class="col-lg-6 text-center">
+        <img
+          src="{{ url_for('static', filename='images/icons/dashboard.svg') }}"
+          class="dashboard-svg"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="row g-4">
+    <div class="col-lg-3">
+      <div class="stat-card">
+        <h2>5,000+</h2>
+
+        <p>Patients</p>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="stat-card">
+        <h2>95%</h2>
+
+        <p>Accuracy</p>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="stat-card">
+        <h2>42</h2>
+
+        <p>Diseases</p>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="stat-card">
+        <h2>24/7</h2>
+
+        <p>Availability</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

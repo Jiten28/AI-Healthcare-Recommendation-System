@@ -1,0 +1,57 @@
+{% extends "layout/base.html" %} {% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/dashboard.css') }}"
+/>
+{% endblock %} {% block title %} Disease Prediction {% endblock %} {% block
+content %}
+
+<section class="dashboard-hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1>Disease Prediction</h1>
+
+        <p>
+          Enter patient symptoms and let our AI model predict the most probable
+          disease with confidence score.
+        </p>
+      </div>
+
+      <div class="col-lg-6 text-center">
+        <img
+          src="{{ url_for('static', filename='images/icons/prediction.svg') }}"
+          class="dashboard-svg"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="prediction-form-section">
+  <div class="container">
+    <div class="prediction-card">
+      <h2>Predict Disease</h2>
+
+      <form>
+        <div class="mb-3">
+          <label>Enter Symptoms</label>
+
+          <textarea
+            class="form-control"
+            rows="6"
+            placeholder="Example:
+Headache,
+Fever,
+Nausea,
+Cough"
+          ></textarea>
+        </div>
+
+        <button class="btn btn-primary-custom">Predict Disease</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
