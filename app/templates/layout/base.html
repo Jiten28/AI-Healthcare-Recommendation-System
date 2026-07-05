@@ -78,8 +78,33 @@
   </head>
 
   <body>
-    {% include 'layout/navbar.html' %} {% block content %} {% endblock %} {%
-    include 'layout/footer.html' %}
+    {% include 'layout/navbar.html' %}
+
+    <!-- Flash Messages -->
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+
+    <div class="container mt-5 pt-5">
+      {% for category, message in messages %}
+
+      <div
+        class="alert alert-{{ category }} alert-dismissible fade show shadow-sm"
+      >
+        {{ message }}
+
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+        ></button>
+      </div>
+
+      {% endfor %}
+    </div>
+
+    {% endif %} {% endwith %} {% block content %} {% endblock %} {% include
+    'layout/footer.html' %}
 
     <!-- Bootstrap -->
 
@@ -89,11 +114,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
     <!-- AOS -->
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <script>
       AOS.init();

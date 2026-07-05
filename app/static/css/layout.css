@@ -145,3 +145,129 @@ footer{
     margin-top:100px;
 
 }
+
+/* ==========================
+   USER DROPDOWN
+========================== */
+
+.user-dropdown{
+
+    display:flex;
+
+    align-items:center;
+
+    background:#fff;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:50px;
+
+    padding:6px 14px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.user-dropdown:hover{
+
+    background:#fff;
+
+}
+
+.user-avatar{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:700;
+
+    font-size:15px;
+
+}
+
+.dropdown-menu{
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:12px 0;
+
+}
+
+.dropdown-item{
+
+    padding:12px 20px;
+
+    transition:.25s;
+
+}
+
+.dropdown-item:hover{
+
+    background:#eff6ff;
+
+    color:var(--primary);
+
+}
+
+/* ==========================
+   ACTIVE NAV LINK
+========================== */
+
+.nav-link{
+
+    position:relative;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.nav-link.active{
+
+    color:var(--primary)!important;
+
+    font-weight:700;
+
+}
+
+.nav-link.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:100%;
+
+    height:3px;
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}
+
+.nav-link:hover{
+
+    color:var(--primary);
+
+}
