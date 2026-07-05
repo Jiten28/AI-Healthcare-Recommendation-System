@@ -1,87 +1,133 @@
-{% extends "layout/base.html" %} {% block css %}
-<link
-  rel="stylesheet"
-  href="{{ url_for('static', filename='css/dashboard.css') }}"
-/>
-{% endblock %} {% block title %}Disease Prediction{% endblock %} {% block
-content %}
+{% extends "layout/base.html" %} {% block title %}AI Disease Prediction{%
+endblock %} {% block content %}
 
-<section class="dashboard-hero">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <h1>Disease Prediction</h1>
-
-        <p>
-          Enter patient symptoms and let our AI predict the most probable
-          disease.
-        </p>
-      </div>
-
-      <div class="col-lg-6 text-center">
-        <img
-          src="{{ url_for('static', filename='images/icons/prediction.svg') }}"
-          class="dashboard-svg"
-          alt="Prediction"
-        />
-      </div>
-    </div>
+<section class="container py-5 mt-5">
+  <div class="text-center mb-5">
+    <h1 class="fw-bold">AI Disease Prediction</h1>
+    <p class="text-muted">
+      Select your symptoms and let MediVerse AI predict the disease.
+    </p>
   </div>
-</section>
 
-<section class="container py-5">
-  <div class="prediction-form">
-    <form>
-      <div class="row g-4">
-        <div class="col-md-6">
-          <label>Age</label>
-          <input type="number" class="form-control" />
-        </div>
+  <div class="card shadow-lg border-0 p-4">
+    <form method="POST">
+      <label class="form-label fw-semibold"> Select Symptoms </label>
 
-        <div class="col-md-6">
-          <label>Gender</label>
-          <select class="form-select">
-            <option>Male</option>
-            <option>Female</option>
-          </select>
-        </div>
+      <select class="form-select symptom-select" name="symptoms" multiple>
+        {% for symptom in symptoms %}
+        <option value="{{ symptom }}">
+          {{ symptom.replace("_", " ").title() }}
+        </option>
+        {% endfor %}
+      </select>
 
-        <div class="col-md-6">
-          <label>Fever</label>
-          <select class="form-select">
-            <option>No</option>
-            <option>Yes</option>
-          </select>
-        </div>
-
-        <div class="col-md-6">
-          <label>Cough</label>
-          <select class="form-select">
-            <option>No</option>
-            <option>Yes</option>
-          </select>
-        </div>
-
-        <div class="col-md-6">
-          <label>Headache</label>
-          <select class="form-select">
-            <option>No</option>
-            <option>Yes</option>
-          </select>
-        </div>
-
-        <div class="col-md-6">
-          <label>Fatigue</label>
-          <select class="form-select">
-            <option>No</option>
-            <option>Yes</option>
-          </select>
-        </div>
-      </div>
-
-      <button class="btn btn-primary-custom mt-4">Predict Disease</button>
+      <button type="submit" class="btn btn-primary-custom mt-4">
+        Predict Disease
+      </button>
     </form>
   </div>
+
+  {% if result %}
+
+  <div class="card shadow border-0 mt-5">
+    <div class="card-body">
+      <h3 class="text-success">
+        {{ result.disease.replace("_", " ").title() }}
+      </h3>
+
+      <h5 class="mt-3">Confidence : {{ result.confidence }}%</h5>
+
+      <div class="progress mt-2" style="height: 25px">
+        <div
+          class="progress-bar bg-success"
+          role="progressbar"
+          style="width: {{ result.confidence }}%;"
+        >
+          {{ result.confidence }}%
+        </div>
+      </div>
+
+      <hr />
+
+      <h4>Description</h4>
+      <p>{{ result.recommendation.description }}</p>
+
+      <hr />
+
+      <h4>Medicines</h4>
+
+      {% if result.recommendation.medicines %}
+      <ul>
+        {% for med in result.recommendation.medicines %}
+        <li>{{ med }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No medicines available.</p>
+      {% endif %}
+
+      <hr />
+
+      <h4>Diet Recommendations</h4>
+
+      {% if result.recommendation.diet %}
+      <ul>
+        {% for item in result.recommendation.diet %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No diet recommendations available.</p>
+      {% endif %}
+
+      <hr />
+
+      <h4>Precautions</h4>
+
+      {% if result.recommendation.precautions %}
+      <ul>
+        {% for item in result.recommendation.precautions %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No precautions available.</p>
+      {% endif %}
+
+      <hr />
+
+      <h4>Workout Suggestions</h4>
+
+      {% if result.recommendation.workout %}
+      <ul>
+        {% for item in result.recommendation.workout %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No workout suggestions available.</p>
+      {% endif %}
+
+      <hr />
+
+      <h4>Recommended Doctor</h4>
+      <p>{{ result.recommendation.doctor }}</p>
+    </div>
+  </div>
+
+  {% endif %}
 </section>
 
-{% endblock %}
+{% block js %}
+
+<script>
+  $(document).ready(function () {
+    $(".symptom-select").select2({
+      placeholder: "Search symptoms...",
+      allowClear: true,
+      width: "100%",
+    });
+  });
+</script>
+
+{% endblock %} {% endblock %}

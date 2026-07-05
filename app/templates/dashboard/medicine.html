@@ -38,39 +38,43 @@ content %}
     <h2 class="mb-4">Recommended Medicines</h2>
 
     <div class="table-responsive">
-      <table class="table table-hover align-middle">
-        <thead>
-          <tr>
-            <th>Medicine</th>
-            <th>Dosage</th>
-            <th>Frequency</th>
-            <th>Duration</th>
-          </tr>
-        </thead>
+      {% if recommendation %}
 
-        <tbody>
-          <tr>
-            <td>Paracetamol</td>
-            <td>500 mg</td>
-            <td>Twice Daily</td>
-            <td>5 Days</td>
-          </tr>
+      <h2>{{ latest.disease }}</h2>
 
-          <tr>
-            <td>Vitamin C</td>
-            <td>1000 mg</td>
-            <td>Once Daily</td>
-            <td>10 Days</td>
-          </tr>
+      <h3>Medicines</h3>
 
-          <tr>
-            <td>ORS Solution</td>
-            <td>200 ml</td>
-            <td>As Required</td>
-            <td>3 Days</td>
-          </tr>
-        </tbody>
-      </table>
+      <ul>
+        {% for med in recommendation.medicines %}
+        <li>{{ med }}</li>
+        {% endfor %}
+      </ul>
+
+      <h3>Diet</h3>
+
+      <ul>
+        {% for item in recommendation.diet %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+
+      <h3>Precautions</h3>
+
+      <ul>
+        {% for item in recommendation.precautions %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+
+      {% else %}
+
+      <h3>No predictions yet.</h3>
+
+      <a href="/prediction" class="btn btn-primary-custom">
+        Start Prediction
+      </a>
+
+      {% endif %}
     </div>
   </div>
 </section>

@@ -15,6 +15,10 @@ MODEL_DIR = os.path.dirname(__file__)
 
 df = pd.read_csv(DATASET)
 
+df = df.loc[:, ~df.columns.str.contains("^Unnamed")]
+
+df = df.loc[:, ~df.columns.duplicated()]
+
 X = df.drop("prognosis", axis=1)
 
 y = df["prognosis"]

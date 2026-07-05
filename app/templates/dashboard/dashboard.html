@@ -44,8 +44,8 @@
           <img
             src="{{ url_for('static', filename='images/icons/prediction.svg') }}"
           />
-          <h2>5,000+</h2>
-          <p>Patients</p>
+          <h2>{{ total_predictions }}</h2>
+          <p>Total Predictions</p>
         </div>
       </div>
 
@@ -54,8 +54,12 @@
           <img
             src="{{ url_for('static', filename='images/icons/brain.svg') }}"
           />
-          <h2>95%</h2>
-          <p>Prediction Accuracy</p>
+          <h2>
+            {% if latest_prediction %} {{ latest_prediction.confidence }}% {%
+            else %} 0% {% endif %}
+          </h2>
+
+          <p>Last Confidence</p>
         </div>
       </div>
 
@@ -64,8 +68,12 @@
           <img
             src="{{ url_for('static', filename='images/icons/medicine.svg') }}"
           />
-          <h2>42</h2>
-          <p>Diseases</p>
+          <h2>
+            {% if latest_prediction %} {{ latest_prediction.disease }} {% else
+            %} - {% endif %}
+          </h2>
+
+          <p>Last Prediction</p>
         </div>
       </div>
 

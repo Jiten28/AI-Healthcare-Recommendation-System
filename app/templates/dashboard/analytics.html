@@ -33,33 +33,59 @@ content %}
   <div class="row g-4">
     <div class="col-lg-4">
       <div class="dashboard-stat">
-        <h2>12,540</h2>
-
+        <h2>{{ total_predictions }}</h2>
         <p>Total Predictions</p>
       </div>
     </div>
 
     <div class="col-lg-4">
       <div class="dashboard-stat">
-        <h2>42</h2>
-
-        <p>Supported Diseases</p>
+        <h2>
+          {% if most_predicted %} {{ most_predicted.replace('_',' ').title() }}
+          {% else %} No Data {% endif %}
+        </h2>
+        <p>Most Predicted Disease</p>
       </div>
     </div>
 
     <div class="col-lg-4">
       <div class="dashboard-stat">
-        <h2>95%</h2>
-
-        <p>Model Accuracy</p>
+        <h2>{{ avg_confidence }}%</h2>
+        <p>Average Confidence</p>
       </div>
     </div>
   </div>
 
   <div class="dashboard-card mt-5">
-    <h3 class="mb-4">Disease Distribution</h3>
+    <h3 class="mb-4">Recent Predictions</h3>
 
-    <div class="chart-placeholder">📊 Chart will be displayed here</div>
+    {% if predictions %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Disease</th>
+          <th>Confidence</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for p in predictions %}
+        <tr>
+          <td>{{ p.disease }}</td>
+          <td>{{ p.confidence }}%</td>
+          <td>{{ p.created_at.strftime('%d-%m-%Y') }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No predictions available.</p>
+    {% endif %}
+
+    <p>No predictions available.</p>
+
+    {% endif %}
   </div>
 </section>
 
