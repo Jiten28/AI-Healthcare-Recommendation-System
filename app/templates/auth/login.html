@@ -32,6 +32,16 @@
           </i>
         </div>
       </div>
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="form-check">
+          {{ form.remember(class="form-check-input") }} {{
+          form.remember.label(class="form-check-label") }}
+        </div>
+
+        <a href="/forgot-password" class="text-decoration-none">
+          Forgot Password?
+        </a>
+      </div>
 
       {{ form.submit(class="btn btn-primary-custom auth-btn") }}
     </form>

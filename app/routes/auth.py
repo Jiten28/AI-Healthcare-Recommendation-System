@@ -24,3 +24,8 @@ def login():
         "auth/login.html",
         form=form
     )
+
+
+@auth_bp.route("/forgot-password")
+def forgot_password():
+    return "<h2>Forgot Password Coming Soon...</h2>"

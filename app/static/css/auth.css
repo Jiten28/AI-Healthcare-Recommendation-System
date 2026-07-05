@@ -111,3 +111,49 @@
     color:var(--primary);
 
 }
+
+/* ==========================
+   PASSWORD STRENGTH
+========================== */
+
+.password-strength{
+
+    margin-top:12px;
+
+}
+
+.strength-bar{
+
+    width:100%;
+
+    height:7px;
+
+    background:#e2e8f0;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+}
+
+#strength-fill{
+
+    width:0;
+
+    height:100%;
+
+    border-radius:50px;
+
+    transition:.35s;
+
+}
+
+#strength-text{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:#64748b;
+
+}
