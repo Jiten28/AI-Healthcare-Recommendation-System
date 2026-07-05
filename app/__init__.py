@@ -20,6 +20,7 @@ def create_app():
     app.register_blueprint(home_bp)
 
     with app.app_context():
+        from app.models.user import User
         db.create_all()
 
     return app
