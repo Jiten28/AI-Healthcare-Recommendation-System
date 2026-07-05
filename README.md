@@ -1,39 +1,53 @@
 # 🩺 MediVerse AI – Healthcare Recommendation System
 
-An AI-powered Healthcare Recommendation System built with **Flask**, **Machine Learning**, and **Bootstrap** that predicts diseases based on symptoms and provides medicine recommendations, doctor suggestions, healthcare analytics, and an admin dashboard.
+![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
+![Flask](https://img.shields.io/badge/Flask-3.1.3-black?logo=flask)
+![Machine Learning](https://img.shields.io/badge/Machine-Learning-green)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?logo=bootstrap)
+![License](https://img.shields.io/badge/License-Educational-orange)
+
+An AI-powered Healthcare Recommendation System built with **Flask**, **Machine Learning**, and **Bootstrap** that predicts diseases based on user-selected symptoms and provides medicine recommendations, doctor suggestions, healthcare analytics, and administrative insights through an interactive dashboard.
 
 ---
 
-## 🚀 Features
+# 🌐 Live Demo
 
-### 👤 User Authentication
+**Application:**  
+https://mediverse-ai.onrender.com
+
+---
+
+# 🚀 Features
+
+## 👤 User Authentication
+
 - User Registration
 - Secure Login
-- Password Hashing (Flask-Bcrypt)
-- Session Management (Flask-Login)
+- Password Hashing using Flask-Bcrypt
+- Session Management with Flask-Login
 
 ---
 
-### 🤖 AI Disease Prediction
+## 🤖 AI Disease Prediction
 
-- Predict disease using Machine Learning
-- Confidence score
-- Prediction history
-- Symptom-based diagnosis
+- Predict diseases using a trained Machine Learning model
+- Confidence score for every prediction
+- Symptom-based disease diagnosis
+- Stores prediction history for every user
 
 ---
 
-### 💊 Medicine Recommendation
+## 💊 Medicine Recommendation
 
 - AI-based medicine recommendation
 - Disease-specific suggestions
-- Recommendation generated after prediction
+- Recommendations generated immediately after prediction
 
 ---
 
-### 👨‍⚕️ Doctor Recommendation
+## 👨‍⚕️ Doctor Recommendation
 
-Provides specialist recommendations such as:
+Provides specialist recommendations including:
 
 - Cardiologist
 - Neurologist
@@ -48,13 +62,13 @@ Provides specialist recommendations such as:
 - Endocrinologist
 - Ophthalmologist
 
-*(Future versions will include doctor contact details, location, hospital information, and appointment booking links.)*
+> **Future Update:** Doctor contact details, hospital information, Google Maps integration, and appointment booking links will be added.
 
 ---
 
-### 📊 Healthcare Analytics
+## 📊 Healthcare Analytics
 
-Interactive analytics dashboard including:
+Interactive analytics dashboard featuring:
 
 - Total Predictions
 - Average Confidence
@@ -66,53 +80,73 @@ Interactive analytics dashboard including:
 
 ---
 
-### 📈 Dashboard
+## 📈 Dashboard
 
-Beautiful dashboard displaying
+User Dashboard includes:
 
 - Latest Prediction
 - Disease Statistics
-- Charts
+- Interactive Charts
 - Prediction Summary
 
 ---
 
-### 🛡 Admin Dashboard
+## 🛡️ Admin Dashboard
 
-Admin-only access
+Accessible only to administrators.
 
-Features:
+Features include:
 
 - Total Users
 - Total Diseases
 - Total Predictions
-- Recent Activity
-- Healthcare Statistics
+- Recent Prediction Activity
+- Overall Healthcare Statistics
 
-Normal users cannot access the Admin Dashboard.
-
----
-
-### 📄 Export Reports
-
-Export prediction reports as:
-
-- PDF Report
-- Excel Report (.xlsx)
+> Regular users cannot access the Admin Dashboard.
 
 ---
 
-## 🛠 Tech Stack
+## 📄 Export Reports
 
-### Backend
+Users can export their prediction history as:
+
+- 📄 PDF Report
+- 📊 Excel Report (.xlsx)
+
+---
+
+# 🧠 Machine Learning Model
+
+The disease prediction model was trained using **Scikit-Learn** on a symptom-based healthcare dataset.
+
+The pipeline includes:
+
+- Data Preprocessing
+- Label Encoding
+- Disease Classification
+- Confidence Score Prediction
+
+### Libraries Used
+
+- Scikit-Learn
+- NumPy
+- Pandas
+- Joblib
+
+---
+
+# 🛠 Tech Stack
+
+## Backend
 
 - Flask
-- Flask SQLAlchemy
-- Flask Login
-- Flask Bcrypt
+- Flask-SQLAlchemy
+- Flask-Login
+- Flask-Bcrypt
 - WTForms
 
-### Frontend
+## Frontend
 
 - HTML5
 - CSS3
@@ -121,24 +155,24 @@ Export prediction reports as:
 - Chart.js
 - Jinja2
 
-### Machine Learning
+## Machine Learning
 
 - Scikit-Learn
 - Pandas
 - NumPy
 
-### Database
+## Database
 
 - SQLite
 
-### Report Generation
+## Report Generation
 
 - ReportLab (PDF)
 - OpenPyXL (Excel)
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```
 AI-Healthcare-Recommendation-System
@@ -153,9 +187,7 @@ AI-Healthcare-Recommendation-System
 │   └── __init__.py
 │
 ├── dataset
-│
 ├── Document
-│
 ├── instance
 │
 ├── requirements.txt
@@ -168,9 +200,9 @@ AI-Healthcare-Recommendation-System
 
 ---
 
-## ⚙ Installation
+# ⚙️ Installation
 
-### Clone Repository
+## 1. Clone Repository
 
 ```bash
 git clone https://github.com/Jiten28/AI-Healthcare-Recommendation-System.git
@@ -178,7 +210,7 @@ git clone https://github.com/Jiten28/AI-Healthcare-Recommendation-System.git
 
 ---
 
-### Create Virtual Environment
+## 2. Create Virtual Environment
 
 ```bash
 python -m venv venv
@@ -186,15 +218,15 @@ python -m venv venv
 
 ---
 
-### Activate Environment
+## 3. Activate Virtual Environment
 
-Windows
+### Windows
 
 ```bash
 venv\Scripts\activate
 ```
 
-Linux / Mac
+### Linux / macOS
 
 ```bash
 source venv/bin/activate
@@ -202,7 +234,7 @@ source venv/bin/activate
 
 ---
 
-### Install Dependencies
+## 4. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -210,15 +242,25 @@ pip install -r requirements.txt
 
 ---
 
-### Run Project
+## 5. Configure Environment Variables
+
+Create a `.env` file inside the project root.
+
+```env
+SECRET_KEY=your_secret_key
+JWT_SECRET_KEY=your_jwt_secret
+ADMIN_EMAIL=your_email@example.com
+```
+
+---
+
+## 6. Run the Application
 
 ```bash
 python run.py
 ```
 
----
-
-Application will run on
+The application will be available at:
 
 ```
 http://127.0.0.1:5000/
@@ -226,37 +268,65 @@ http://127.0.0.1:5000/
 
 ---
 
-## 📸 Screenshots
+# ☁️ Deployment
 
-Add screenshots of
+The application is deployed on **Render**.
 
-- Landing Page
-- Login
-- Dashboard
-- Analytics
-- Disease Prediction
-- Medicine Recommendation
-- Doctor Recommendation
-- Admin Dashboard
+**Live Demo:**
+
+https://mediverse-ai.onrender.com
 
 ---
 
-## 🔮 Future Improvements
+# 🔑 Admin Access
+
+Admin privileges are automatically assigned to the email configured through the `ADMIN_EMAIL` environment variable.
+
+Regular users cannot access the Admin Dashboard.
+
+---
+
+# 📸 Project Preview
+
+> Screenshots will be added after the final UI is completed.
+
+| Landing Page | Dashboard |
+|--------------|-----------|
+| ![](screenshots/home.png) | ![](screenshots/dashboard.png) |
+
+| Prediction | Analytics |
+|------------|-----------|
+| ![](screenshots/prediction.png) | ![](screenshots/analytics.png) |
+
+| Medicine | Doctor Recommendation |
+|-----------|----------------------|
+| ![](screenshots/medicine.png) | ![](screenshots/doctor.png) |
+
+| Admin Dashboard | Footer |
+|-----------------|--------|
+| ![](screenshots/admin.png) | ![](screenshots/footer.png) |
+
+---
+
+# 🚀 Future Roadmap
 
 - AI Doctor Chatbot (Ollama)
-- Hospital Finder
 - Doctor Appointment Booking
+- Hospital Finder
+- Google Maps Integration
 - Doctor Contact Details
-- Maps Integration
-- Medical Report Upload
+- Upload Medical Reports
 - Email Notifications
 - Multi-language Support
+- User Profile Management
+- PostgreSQL Cloud Database
+- REST API Support
 
 ---
 
-## 📦 Requirements
+# 📦 Requirements
 
-See
+All required Python packages are listed in:
 
 ```
 requirements.txt
@@ -264,21 +334,36 @@ requirements.txt
 
 ---
 
-## 👨‍💻 Author
+# 🙏 Acknowledgements
 
-**Jiten Kumar**
+Special thanks to the open-source community and the following technologies:
 
-LinkedIn:
-*[(LinkedIn URL)](https://www.linkedin.com/in/jiten-kumar-85a03217a/)*
-
-GitHub:
-*[(GitHub URL)](https://github.com/Jiten28)*
-
-Portfolio:
-*[(Portfolio URL)](https://jitenkumarportfolio.netlify.app/)*
+- Flask
+- Bootstrap
+- Scikit-Learn
+- Chart.js
+- ReportLab
+- OpenPyXL
 
 ---
 
-## 📜 License
+# 👨‍💻 Author
 
-This project is developed for educational and portfolio purposes.
+**Jiten Kumar**
+
+🌐 Portfolio  
+https://jitenkumarportfolio.netlify.app/
+
+💼 LinkedIn  
+https://www.linkedin.com/in/jiten-kumar-85a03217a/
+
+💻 GitHub  
+https://github.com/Jiten28
+
+---
+
+# 📜 License
+
+This project is developed for educational, learning, and portfolio purposes.
+
+Feel free to fork, explore, and improve the project.
