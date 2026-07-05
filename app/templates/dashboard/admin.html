@@ -1,0 +1,118 @@
+{% extends "layout/base.html" %} {% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/dashboard.css') }}"
+/>
+{% endblock %} {% block title %}Admin Dashboard{% endblock %} {% block content
+%}
+
+<section class="dashboard-hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1>Admin Dashboard</h1>
+
+        <p>
+          Monitor users, predictions, diseases and healthcare analytics from one
+          centralized dashboard.
+        </p>
+      </div>
+
+      <div class="col-lg-6 text-center">
+        <img
+          src="{{ url_for('static', filename='images/icons/admin.svg') }}"
+          class="dashboard-svg"
+          alt="Admin"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <div class="row g-4">
+    <div class="col-lg-3">
+      <div class="dashboard-stat">
+        <h2>2,350</h2>
+
+        <p>Total Users</p>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="dashboard-stat">
+        <h2>48</h2>
+
+        <p>Diseases</p>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="dashboard-stat">
+        <h2>95%</h2>
+
+        <p>Accuracy</p>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="dashboard-stat">
+        <h2>1,240</h2>
+
+        <p>Predictions</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-table mt-5">
+    <h3 class="mb-4">Recent Activity</h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>User</th>
+
+          <th>Disease</th>
+
+          <th>Status</th>
+
+          <th>Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>John Doe</td>
+
+          <td>Diabetes</td>
+
+          <td>Completed</td>
+
+          <td>Today</td>
+        </tr>
+
+        <tr>
+          <td>Emma</td>
+
+          <td>Hypertension</td>
+
+          <td>Completed</td>
+
+          <td>Today</td>
+        </tr>
+
+        <tr>
+          <td>Alex</td>
+
+          <td>Migraine</td>
+
+          <td>Pending</td>
+
+          <td>Yesterday</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock %}

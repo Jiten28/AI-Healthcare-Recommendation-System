@@ -3,7 +3,8 @@
   rel="stylesheet"
   href="{{ url_for('static', filename='css/dashboard.css') }}"
 />
-{% endblock %} {% block title %} Analytics {% endblock %} {% block content %}
+{% endblock %} {% block title %}Healthcare Analytics{% endblock %} {% block
+content %}
 
 <section class="dashboard-hero">
   <div class="container">
@@ -12,7 +13,8 @@
         <h1>Healthcare Analytics</h1>
 
         <p>
-          AI-generated healthcare trends, statistics and prediction analysis.
+          Explore healthcare trends, AI insights and disease statistics through
+          interactive dashboards.
         </p>
       </div>
 
@@ -20,29 +22,44 @@
         <img
           src="{{ url_for('static', filename='images/icons/analytics.svg') }}"
           class="dashboard-svg"
+          alt="Analytics"
         />
       </div>
     </div>
   </div>
 </section>
 
-<section class="container">
+<section class="container py-5">
   <div class="row g-4">
-    <div class="col-lg-6">
-      <div class="stat-card">
-        <h3>Disease Distribution</h3>
+    <div class="col-lg-4">
+      <div class="dashboard-stat">
+        <h2>12,540</h2>
 
-        <p>Charts will appear here.</p>
+        <p>Total Predictions</p>
       </div>
     </div>
 
-    <div class="col-lg-6">
-      <div class="stat-card">
-        <h3>Prediction Accuracy</h3>
+    <div class="col-lg-4">
+      <div class="dashboard-stat">
+        <h2>42</h2>
 
-        <p>Analytics graph will appear here.</p>
+        <p>Supported Diseases</p>
       </div>
     </div>
+
+    <div class="col-lg-4">
+      <div class="dashboard-stat">
+        <h2>95%</h2>
+
+        <p>Model Accuracy</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-card mt-5">
+    <h3 class="mb-4">Disease Distribution</h3>
+
+    <div class="chart-placeholder">📊 Chart will be displayed here</div>
   </div>
 </section>
 

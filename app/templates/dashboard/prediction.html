@@ -3,7 +3,7 @@
   rel="stylesheet"
   href="{{ url_for('static', filename='css/dashboard.css') }}"
 />
-{% endblock %} {% block title %} Disease Prediction {% endblock %} {% block
+{% endblock %} {% block title %}Disease Prediction{% endblock %} {% block
 content %}
 
 <section class="dashboard-hero">
@@ -13,8 +13,8 @@ content %}
         <h1>Disease Prediction</h1>
 
         <p>
-          Enter patient symptoms and let our AI model predict the most probable
-          disease with confidence score.
+          Enter patient symptoms and let our AI predict the most probable
+          disease.
         </p>
       </div>
 
@@ -22,35 +22,65 @@ content %}
         <img
           src="{{ url_for('static', filename='images/icons/prediction.svg') }}"
           class="dashboard-svg"
+          alt="Prediction"
         />
       </div>
     </div>
   </div>
 </section>
 
-<section class="prediction-form-section">
-  <div class="container">
-    <div class="prediction-card">
-      <h2>Predict Disease</h2>
-
-      <form>
-        <div class="mb-3">
-          <label>Enter Symptoms</label>
-
-          <textarea
-            class="form-control"
-            rows="6"
-            placeholder="Example:
-Headache,
-Fever,
-Nausea,
-Cough"
-          ></textarea>
+<section class="container py-5">
+  <div class="prediction-form">
+    <form>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <label>Age</label>
+          <input type="number" class="form-control" />
         </div>
 
-        <button class="btn btn-primary-custom">Predict Disease</button>
-      </form>
-    </div>
+        <div class="col-md-6">
+          <label>Gender</label>
+          <select class="form-select">
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label>Fever</label>
+          <select class="form-select">
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label>Cough</label>
+          <select class="form-select">
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label>Headache</label>
+          <select class="form-select">
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label>Fatigue</label>
+          <select class="form-select">
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn btn-primary-custom mt-4">Predict Disease</button>
+    </form>
   </div>
 </section>
 
