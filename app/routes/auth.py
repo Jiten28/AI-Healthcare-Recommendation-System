@@ -3,6 +3,7 @@ from flask_login import login_user, logout_user
 from app.forms.auth_forms import RegisterForm, LoginForm
 from app.models.user import User
 from app import db, bcrypt
+import os
 
 auth_bp = Blueprint("auth", __name__)
 
@@ -33,11 +34,16 @@ def register():
             form.password.data
         ).decode("utf-8")
 
-        # Create new user
+        # Create new user and admin check
+        admin_email = os.getenv("ADMIN_EMAIL", "")
+
         user = User(
             name=form.name.data,
             email=form.email.data,
-            password=hashed_password
+            password=hashed_password,
+            is_admin=(
+                form.email.data.lower() == admin_email.lower()
+            )
         )
 
         db.session.add(user)
