@@ -1,1 +1,59 @@
-<footer class="text-center py-5">© 2026 MediVerse AI</footer>
+<footer class="footer">
+  <div class="container">
+    <div class="row text-center align-items-center">
+      <!-- Column 1 -->
+      <div class="col-lg-3 col-md-6 mb-4 footer-brand">
+        <img
+          src="{{ url_for('static', filename='images/logo/Logo_Text.svg') }}"
+          class="footer-logo"
+          alt="MediVerse AI"
+        />
+
+        <p class="mt-3">
+          AI-powered Healthcare Recommendation System providing disease
+          prediction, medicine recommendation, analytics and intelligent
+          healthcare solutions.
+        </p>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5>Platform</h5>
+
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/prediction">Prediction</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/analytics">Analytics</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5>Modules</h5>
+
+        <ul class="footer-links">
+          <li>Disease Prediction</li>
+          <li>Medicine Recommendation</li>
+          <li>AI Doctor</li>
+          <li>Admin Panel</li>
+        </ul>
+      </div>
+
+      <!-- Column 4 -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5>Contact</h5>
+
+        <p>support@mediverse.ai</p>
+
+        <p>AI Healthcare Recommendation System</p>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="text-center">
+      © 2026 MediVerse AI • Built with Flask & Machine Learning
+    </div>
+  </div>
+</footer>
