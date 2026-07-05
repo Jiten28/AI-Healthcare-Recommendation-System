@@ -1,4 +1,9 @@
-from flask import Blueprint, render_template, request
+from flask import (
+    Blueprint,
+    render_template,
+    request,
+    flash
+)
 from flask_login import login_required
 import json
 import os
@@ -28,6 +33,20 @@ def prediction():
     if request.method == "POST":
 
         selected_symptoms = request.form.getlist("symptoms")
+
+        # Validate input
+        if not selected_symptoms:
+
+            flash(
+                "Please select at least one symptom before predicting.",
+                "warning"
+            )
+
+            return render_template(
+                "dashboard/prediction.html",
+                result=None,
+                symptoms=all_symptoms
+            )
 
         disease, confidence = predict_disease(selected_symptoms)
 
