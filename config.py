@@ -13,6 +13,9 @@ class Config:
         "jwt_secret_key"
     )
 
-    SQLALCHEMY_DATABASE_URI = "sqlite:///database/app.db"
+    SQLALCHEMY_DATABASE_URI = os.getenv(
+        "DATABASE_URL",
+        "sqlite:///mediverse.db"
+    )
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
